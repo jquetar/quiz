@@ -32,14 +32,18 @@ exports.Quiz = Quiz;
 
 sequelize.sync().then(function() {
 	//success(..) ejecuta el manejador una vez creada la tabal
+	console.log('Quiz: ' + Quiz.count());
+
 	Quiz.count().then(function(count) {
 		if(count === 0) {
-			Quiz.create(
-			{	
+			Quiz.create({	
 				pregunta: 'Capital de Italia',
 				respuesta : 'Roma'
-						})
-			.then(function(){console.log('Base de datos iniciada')});
-		};
+			});
+			Quiz.create({	
+				pregunta: 'Capital de Portugal',
+				respuesta : 'Lisboa'				
+			}).then(function(){console.log('Base de datos iniciada')});
+		} 
 	});
 });
