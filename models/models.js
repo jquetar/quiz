@@ -31,9 +31,7 @@ var Quiz = sequelize.import(quiz_path);
 exports.Quiz = Quiz;
 
 sequelize.sync().then(function() {
-	//success(..) ejecuta el manejador una vez creada la tabal
-	console.log('Quiz: ' + Quiz.count());
-
+	//success(..) ejecuta el manejador una vez creada la tabla
 	Quiz.count().then(function(count) {
 		if(count === 0) {
 			Quiz.create({	
