@@ -12,3 +12,4 @@ img						{height:200px; width:200px;}
 nav span				{margin: 0px 10px 0px 0px;}
 
 #ErrorMsgs				{color: #61; font-size: smaller;}
+.right					{float:right;}

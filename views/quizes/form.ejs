@@ -2,7 +2,7 @@
 <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta%>"/><p>
 <label for="resp" class="rem">Respuesta</label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta%>"/><p>
-<label for="tema" class="rem">Respuesta</label>
+<label for="tema" class="rem">Tema</label>
 <select id="tema" name="quiz[tema]">
   <option value="otro" <%= quiz.tema === "otro" ? 'selected' : '' %>>Otro</option>
   <option value="humanidades" <%= quiz.tema === "humanidades" ? 'selected' : '' %>>Humanidades</option>
