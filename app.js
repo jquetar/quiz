@@ -27,15 +27,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 //helpers dinamicos
 app.use(function(req, res, next) {
     //guardar path en session.redir para despu´es del login
-    console.log("por login");
     if(!req.path.match(/\/login|\/logout/)) {
-        console.log("dentro");
         req.session.redir = req.path;
     }
     //hacer visible req.session en las vistas
     res.locals.session = req.session;
     next();
-})
+});
+
+
+//autologout
+app.use(function(req, res, next) {
+    console.log("Dentro autologout");
+    if (req.session) {
+        if (req.session.peticion) {
+            var fechaAnt = new Date(req.session.peticion);
+            var diff = new Date() - fechaAnt;
+            if(diff > 120000) {
+                req.session.user = undefined;
+            } else {
+                req.session.peticion = new Date();
+            }
+        } else {
+            req.session.peticion = new Date();
+        }    
+    }
+    next();
+});
 
 app.use('/', routes);
 
