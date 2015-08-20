@@ -37,6 +37,7 @@ Quiz.hasMany(Comment);
 
 exports.Quiz = Quiz;
 exports.Comment = Comment;
+exports.sequelize = sequelize;
 
 sequelize.sync().then(function() {
 	//success(..) ejecuta el manejador una vez creada la tabla

@@ -38,7 +38,6 @@ app.use(function(req, res, next) {
 
 //autologout
 app.use(function(req, res, next) {
-    console.log("Dentro autologout");
     if (req.session) {
         if (req.session.peticion) {
             var fechaAnt = new Date(req.session.peticion);
